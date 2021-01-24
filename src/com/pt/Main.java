@@ -6,6 +6,10 @@ import com.pt.decorator.example1.coffee.Decaf;
 import com.pt.decorator.example1.coffee.Espresso;
 import com.pt.decorator.example1.condiment.*;
 import com.pt.decorator.example2.LowerCaseInputStream;
+import com.pt.factory.factorymethod.Robot;
+import com.pt.factory.factorymethod.RobotType;
+import com.pt.factory.factorymethod.StarWarRobots;
+import com.pt.factory.factorymethod.StarWarsRobotFactory;
 import com.pt.observer.WeatherData;
 import com.pt.observer.displays.FullWeatherDisplay;
 import com.pt.observer.displays.TemperatureDisplay;
@@ -21,7 +25,17 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        runDecoratorExample2();
+        runFactoryMethodExample();
+    }
+
+    private static void runFactoryMethodExample() {
+        StarWarsRobotFactory robotFactory = new StarWarsRobotFactory();
+
+        Robot protocol = robotFactory.getRobot(StarWarRobots.PROTOCOL_DROID);
+        Robot astromech = robotFactory.getRobot(StarWarRobots.ASTROMECH_DROID);
+        Robot gonk = robotFactory.getRobot(StarWarRobots.GONK_DROID);
+        Robot b1Battle = robotFactory.getRobot(StarWarRobots.B1_BATTLE_DROID);
+
     }
 
     private static void runStrategyExample() {

@@ -1,5 +1,10 @@
 package com.pt;
 
+import com.pt.command.CeilingFan;
+import com.pt.command.GarageDoor;
+import com.pt.command.Light;
+import com.pt.command.RemoteControl;
+import com.pt.command.commands.*;
 import com.pt.decorator.example1.coffee.Beverage;
 import com.pt.decorator.example1.coffee.DarkRoast;
 import com.pt.decorator.example1.coffee.Decaf;
@@ -25,7 +30,37 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        runFactoryMethodExample();
+        runCommandExample();
+    }
+
+    private static void runCommandExample() {
+        Light light = new Light();
+        GarageDoor garageDoor = new GarageDoor();
+        CeilingFan ceilingFan = new CeilingFan("Living Room");
+
+        RemoteControl remoteControl = new RemoteControl();
+        remoteControl.setCommand(0, new LightOnCommand(light), new LightOffCommand(light));
+        remoteControl.setCommand(1, new GarageDoorOpenCommand(garageDoor), new GarageDoorCloseCommand(garageDoor));
+        remoteControl.setCommand(2, new CeilingFanHighCommand(ceilingFan));
+        remoteControl.setCommand(3, new CeilingFanMediumCommand(ceilingFan));
+        remoteControl.setCommand(4, new CeilingFanLowCommand(ceilingFan));
+        remoteControl.setCommand(5, new CeilingFanOffCommand(ceilingFan));
+
+        System.out.println(remoteControl + "\n");
+        remoteControl.onButtonPushed(0);
+        remoteControl.onButtonPushed(2);
+        remoteControl.onButtonPushed(4);
+        remoteControl.onButtonPushed(1);
+        remoteControl.offButtonPushed(0);
+        System.out.println("---- UNDOING ----");
+        remoteControl.undoButtonPushed();
+        remoteControl.undoButtonPushed();
+        remoteControl.undoButtonPushed();
+        remoteControl.undoButtonPushed();
+        remoteControl.undoButtonPushed();
+        remoteControl.undoButtonPushed();
+
+
     }
 
     private static void runFactoryMethodExample() {

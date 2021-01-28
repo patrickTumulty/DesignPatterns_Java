@@ -1,4 +1,4 @@
-package com.pt.facade;
+package com.pt.facade.apifacade;
 
 /*
 Obviously the below code wont run as it is. Everything is an interface, thus
@@ -10,6 +10,8 @@ it may be necessary to have the complex API. The Facade we have created below do
 restrict the developer to ONLY using the Facade API.
  */
 
+
+import com.pt.facade.exampleapi.*;
 
 public class HomeTheaterFacade implements TheaterFacade {
     Amplifier amplifier;

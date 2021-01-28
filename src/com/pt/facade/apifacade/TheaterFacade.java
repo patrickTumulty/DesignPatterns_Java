@@ -1,4 +1,4 @@
-package com.pt.facade;
+package com.pt.facade.apifacade;
 
 public interface TheaterFacade {
     void watchMovie(String movie);

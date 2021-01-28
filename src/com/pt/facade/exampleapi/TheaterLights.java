@@ -1,4 +1,4 @@
-package com.pt.facade;
+package com.pt.facade.exampleapi;
 
 public interface TheaterLights {
     void on();

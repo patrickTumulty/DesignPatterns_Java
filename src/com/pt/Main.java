@@ -19,6 +19,10 @@ import com.pt.observer.WeatherData;
 import com.pt.observer.displays.FullWeatherDisplay;
 import com.pt.observer.displays.TemperatureDisplay;
 import com.pt.strategy.enemies.*;
+import com.pt.template.CaffeineBeverage;
+import com.pt.template.CoffeeBeverage;
+import com.pt.template.TeaBeverage;
+import com.pt.template.sorting.SortingExample;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -30,7 +34,32 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        runAdapterExample();
+        runTemplateSortingExample();
+//        runTemplateExample();
+//        runAdapterExample();
+//        runCommandExample();
+//        runFactoryMethodExample();
+//        runObserverExample();
+//        runStrategyExample();
+//        runDecoratorExample1();
+//        runDecoratorExample2();
+    }
+
+    private static void runTemplateSortingExample() {
+        // See com.pt.template.sorting for implementation details
+        SortingExample example = new SortingExample();
+        example.runExample();
+    }
+
+    private static void runTemplateExample() {
+        CaffeineBeverage tea = new TeaBeverage();
+        CaffeineBeverage coffee = new CoffeeBeverage();
+
+        System.out.println("\nPreparing tea...");
+        tea.prepareRecipe();
+
+        System.out.println("\nPreparing coffee...");
+        coffee.prepareRecipe();
     }
 
     private static void runAdapterExample() {

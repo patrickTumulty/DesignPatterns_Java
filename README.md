@@ -6,3 +6,18 @@ This repo is meant to serve as a simple reference to these fundamental design pa
 pretty close to the book.
 
 Most use case examples are in the `Main.java` file as static methods.  
+
+---
+
+### Patterns Implemented 
+
+- Strategy
+- Observer
+- Factory Method
+- TODO: Abstract Factory
+- Command
+- Decorator
+- Facade
+- Singleton
+- Template
+- Adapter

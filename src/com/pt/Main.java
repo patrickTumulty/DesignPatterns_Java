@@ -1,5 +1,6 @@
 package com.pt;
 
+import com.pt.adapter.duckturkey.*;
 import com.pt.command.CeilingFan;
 import com.pt.command.GarageDoor;
 import com.pt.command.Light;
@@ -12,7 +13,6 @@ import com.pt.decorator.example1.coffee.Espresso;
 import com.pt.decorator.example1.condiment.*;
 import com.pt.decorator.example2.LowerCaseInputStream;
 import com.pt.factory.factorymethod.Robot;
-import com.pt.factory.factorymethod.RobotType;
 import com.pt.factory.factorymethod.StarWarRobots;
 import com.pt.factory.factorymethod.StarWarsRobotFactory;
 import com.pt.observer.WeatherData;
@@ -30,7 +30,23 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        runCommandExample();
+        runAdapterExample();
+    }
+
+    private static void runAdapterExample() {
+        Duck duck = new MallardDuck();
+
+        Turkey turkey = new WildTurkey();
+        Duck turkeyAdapter = new TurkeyAdapter(turkey);
+
+        System.out.println("The turkey says...");
+        turkey.gobble();
+        turkey.fly();
+
+        System.out.println("\nThe duck says...");
+        AdapterTest.testDuck(duck);
+        System.out.println("\nThe turkey adapter says...");
+        AdapterTest.testDuck(turkeyAdapter);
     }
 
     private static void runCommandExample() {

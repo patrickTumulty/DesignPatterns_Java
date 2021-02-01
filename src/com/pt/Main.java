@@ -15,6 +15,9 @@ import com.pt.decorator.example2.LowerCaseInputStream;
 import com.pt.factory.factorymethod.Robot;
 import com.pt.factory.factorymethod.StarWarRobots;
 import com.pt.factory.factorymethod.StarWarsRobotFactory;
+import com.pt.iterator.DinerMenu;
+import com.pt.iterator.PancakeHouseMenu;
+import com.pt.iterator.Waitress;
 import com.pt.observer.WeatherData;
 import com.pt.observer.displays.FullWeatherDisplay;
 import com.pt.observer.displays.TemperatureDisplay;
@@ -34,7 +37,8 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        runTemplateSortingExample();
+        runIteratorExample();
+//        runTemplateSortingExample();
 //        runTemplateExample();
 //        runAdapterExample();
 //        runCommandExample();
@@ -43,6 +47,14 @@ public class Main {
 //        runStrategyExample();
 //        runDecoratorExample1();
 //        runDecoratorExample2();
+    }
+
+    private static void runIteratorExample() {
+        PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
+        DinerMenu dinerMenu = new DinerMenu();
+
+        Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu);
+        waitress.printMenu();
     }
 
     private static void runTemplateSortingExample() {
